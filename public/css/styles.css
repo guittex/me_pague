@@ -1,0 +1,16 @@
+.float-r{
+    text-align: right!important;
+}
+
+.m-t-10{
+    margin-top: 10px;
+}
+
+.text-white{
+    color: white!important
+}
+
+.btn-warning-dark{
+    background-color: #f39c12;
+    border-color: #f39c12;
+}
