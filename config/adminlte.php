@@ -239,8 +239,19 @@ return [
         // Menu Principal::
         [
             'header' => 'MENU',
-            'classes' => 'text-uppercase text-bold'
+            'classes' => 'text-uppercase text-bold',
         ],
+        [
+            'text' => 'Dashboard',
+            'url' => '/',
+            'icon' => 'fa fa-angle-right'
+        ],
+        [
+            'text' => 'Pessoas',
+            'url' => '/pessoas',
+            'icon' => 'fa fa-angle-right'
+        ]
+        
         // [
         //     'text'        => 'Produtos',
         //     'url'         => 'produtos',

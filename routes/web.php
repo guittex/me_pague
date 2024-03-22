@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\PessoasController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -11,12 +11,12 @@ Route::get('/', function(){
     return view("index");
 });
 
-Route::controller(ProdutoController::class)->group(function () {
-    Route::get('/produtos', 'index');
-    Route::get('/produtos/view/{id}', 'view');
-    Route::match(['get', 'post'], '/produtos/edit/{id}', 'edit')->name("produto.edit");
-    Route::match(['get', 'post'], 'produtos/add', 'add')->name("produto.add");
-    Route::post('/produtos/delete/{id}', 'delete');
+Route::controller(PessoasController::class)->group(function () {
+    Route::get('/pessoas', 'index');
+    Route::get('/pessoas/view/{id}', 'view');
+    Route::match(['get', 'post'], '/pessoas/edit/{id}', 'edit')->name("pessoas.edit");
+    Route::match(['get', 'post'], '/pessoas/add', 'add')->name("pessoas.add");
+    Route::post('/pessoas/delete/{id}', 'delete');
 });
 
 Auth::routes();

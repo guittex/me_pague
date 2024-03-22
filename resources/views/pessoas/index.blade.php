@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Produtos')
+@section('title', 'Pessoas')
 
 @section('content_header')
     <div class="row">
         <div class="col-md-12">
-            <h3>Produtos</h3>
+            <h3>Pessoas</h3>
         </div>
         <div class="col-md-12">
             @if (session('msg'))      
@@ -27,41 +27,46 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-md-6">
-                        <h5>Lista de Produtos</h5>
+                        <h5>Lista de Pessoas</h5>
                     </div>
                     <div class="col-md-6 float-r">
-                        <a href="/produtos/add" class="btn btn-success">Adicionar</a>
+                        <a href="/pessoas/add" class="btn btn-success">Adicionar</a>
                     </div>
                 </div>
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-12" style="overflow: auto">
+                    <div class="col-md-12">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Nome</th>
-                                    <th scope="col">Quantidade</th>
-                                    <th scope="col">Categoria</th>
-                                    <th scope="col">Descrição</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">CPF</th>
+                                    <th scope="col">Celular</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($produtos as $produto)
+                                @foreach ($pessoas as $pessoa)
                                     <tr>
-                                        <th scope="row">{{ $produto->id }}</th>
-                                        <td>{{ $produto->nnpame }}</td>
-                                        <td>{{ $produto->qtd }}</td>
-                                        <td>{{ $produto->category }}</td>
-                                        <td>{{ $produto->description }}</td>
+                                        <th scope="row">{{ $pessoa->id }}</th>
+                                        <td>{{ $pessoa->nome }}</td>
+                                        <td>{{ $pessoa->email }}</td>
+                                        <td>{{ $pessoa->cpf }}</td>
+                                        <td>{{ $pessoa->celular }}</td>
+                                        <td>{{ $pessoa->status }}</td>
                                         <td>
-                                            <a style="width:46px;margin-bottom:5px" href="/produtos/edit/{{ $produto->id }}" class="btn btn-warning-dark text-white btn-xs">Editar</a>
-                                            <form action="/produtos/delete/{{ $produto->id }}" method="post">
-                                                @csrf
-                                                <button class="btn btn-danger btn-xs" type="submit">Deletar</button>
-                                            </form>
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle btn-xs" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                  Ações
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                  <a class="dropdown-item" href="/pessoas/edit/{{ $pessoa->id }}">Editar</a>
+                                                </div>
+                                              </div>
                                         </td>
                                     </tr>
                                 @endforeach
